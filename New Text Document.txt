@@ -1,0 +1,41 @@
+-----------creating company table and references to employee , manager, emp_name-----------------
+
+create table company(id int primary key identity, name varchar(10), dept varchar(10),);
+select * from company;
+insert into company values('sanjay','sales');
+insert into company values('shreya','production');
+insert into company values('shubham','qulity');
+insert into company values('pooja','purches');
+insert into company values('aman','delivery');
+
+create table employee(emp_id int primary key identity,post varchar(10), id int foreign key references company (id));
+
+select * from company;
+select * from employee;
+select * from manager;
+
+insert into employee values('manager',1);
+insert into employee values('oprator',2);
+insert into employee values('technician',3);
+insert into employee values('purchesmng',4);
+insert into employee values('salemng',1);
+drop table manager
+create table manager(mng_id int primary key identity, age int, address varchar (10),emp_id int foreign key references employee (emp_id));
+select * from manager;
+insert into manager values(31,'pune',1);
+insert into manager values(29,'kolhapur',2);
+insert into manager values(28,'sangli',3);
+insert into manager values(32,'satara',7);
+
+create table emp_name(sr_no int primary key identity, first_name varchar(10),last_name varchar (10),id int foreign key references company (id));
+
+insert into emp_name values('sanjay','misal',1);
+insert into emp_name values ('shreya','rai',2);
+insert into emp_name values('shubham ','jadhav',3);
+insert into emp_name values('pooja','mane',4);
+insert into emp_name values('aman','mehara',5);
+
+select * from company;
+select * from employee;
+select * from manager;
+select * from emp_name;
